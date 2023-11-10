@@ -45,7 +45,7 @@ function downloadSlips() {
                 const url = window.URL.createObjectURL(blob);
                 const link = document.createElement('a');
                 link.href = url;
-                link.download = `Result ${rollNumber} - Semester ${semester}.pdf`;
+                link.download = Slip ${rollNumber} - Semester ${semester}.pdf`;
                 link.click();
                 window.URL.revokeObjectURL(url);
             } else {
