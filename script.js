@@ -22,7 +22,7 @@ function downloadSlips() {
 
     // Adjust the URL using template literals
     const apiUrl = `https://api_last-1-j0851899.deta.app/generate_pdf?roll_no=${rollNumber}&result_code=${getResultCode(semester)}`;
-    
+
     // Create form data
     const formData = new FormData();
     formData.append('roll_no', rollNumber);
@@ -42,12 +42,20 @@ function downloadSlips() {
         })
         .then((blob) => {
             if (blob) {
-                const url = window.URL.createObjectURL(blob);
+                // Create a link element
                 const link = document.createElement('a');
-                link.href = url;
-                link.download = Slip ${rollNumber} - Semester ${semester}.pdf`;
+                // Set the href attribute to the object URL of the blob
+                link.href = window.URL.createObjectURL(blob);
+                // Set the download attribute to specify the file name
+                link.download = `Slip ${rollNumber} - Semester ${semester}.pdf`;
+                // Append the link to the document body
+                document.body.appendChild(link);
+                // Trigger a click on the link to initiate the download
                 link.click();
-                window.URL.revokeObjectURL(url);
+                // Remove the link from the document
+                document.body.removeChild(link);
+                // Release the object URL
+                window.URL.revokeObjectURL(link.href);
             } else {
                 throw new Error('Download failed. Please check your input.');
             }
@@ -57,6 +65,7 @@ function downloadSlips() {
             alert(error.message);
         });
 }
+
 
 
 function clearForm() {
