@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PU BS RESULTS</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <img src="pu_logo.png" alt="Organization Logo" class="logo" width="200" height="4600">
+        <h1 class="title">PU BS SLIPS DOWNLOADER FOR AFFIALTED COLLEGES</h1>
+        <form id="resultForm" class="form">
+            <div class="form-group">
+                <label for="rollNumber" class="label">Roll Number:</label>
+                <input type="text" id="rollNumber" name="rollNumber" class="input" required>
+            </div>
+            <div class="form-group">
+                <label for="semester" class="label">Semester:</label>
+                <select id="semester" name="semester" class="input">
+                    <option value="1" selected>1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                </select>
+            </div>
+            <div class="button-group">
+                <button type="button" onclick="downloadSlips()" class="download-button">Download</button>
+                <button type="button" onclick="clearForm()" class="clear-button">Clear</button>
+            </div>
+            <div class="bottom-center">
+                Copyright &copy; Kanwar Adnan
+            </div>
+        </form>
+        <div id="resultMessage" class="result-message"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
