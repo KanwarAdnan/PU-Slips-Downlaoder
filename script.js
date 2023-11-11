@@ -13,15 +13,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function downloadSlips() {
     const rollNumber = document.getElementById('rollNumber').value;
-    const semester = document.getElementById('semester').value;
 
     if (!rollNumber) {
         alert('Please enter a roll number.');
         return;
     }
 
-    // Adjust the URL using template literals
-    https://api_last-1-j0851899.deta.app/download_slip?roll_no=45233
     const apiUrl = `https://api_last-1-j0851899.deta.app/download_slip?roll_no=${rollNumber}`;
 
     // Create form data
@@ -47,7 +44,7 @@ function downloadSlips() {
                 // Set the href attribute to the object URL of the blob
                 link.href = window.URL.createObjectURL(blob);
                 // Set the download attribute to specify the file name
-                link.download = `Slip ${rollNumber} - Semester ${semester}.pdf`;
+                link.download = `Slips ${rollNumber}.pdf`;
                 // Append the link to the document body
                 document.body.appendChild(link);
                 // Trigger a click on the link to initiate the download
@@ -70,6 +67,5 @@ function downloadSlips() {
 
 function clearForm() {
     document.getElementById('rollNumber').value = '';
-    document.getElementById('semester').value = '1';
     document.getElementById('resultMessage').innerHTML = '';
 }
