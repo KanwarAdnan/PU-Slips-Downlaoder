@@ -33,7 +33,7 @@ function downloadSlips() {
         .then((response) => {
             console.log('Response status:', response.status);
             if (!response.ok) {
-                throw new Error('Download failed. Please check your input.');
+                throw new Error("The slip download failed. It's possible that the slip is not available because Punjab University hasn't uploaded it yet, or you may not be registered. Please check your registration status and try again later.");
             }
             return response.blob();
         })
@@ -54,7 +54,7 @@ function downloadSlips() {
                 // Release the object URL
                 window.URL.revokeObjectURL(link.href);
             } else {
-                throw new Error('Download failed. Please check your input.');
+                throw new Error("The slip download failed. It's possible that the slip is not available because Punjab University hasn't uploaded it yet, or you may not be registered. Please check your registration status and try again later.");
             }
         })
         .catch((error) => {
