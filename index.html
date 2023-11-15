@@ -9,22 +9,27 @@
 <body>
     <div class="container">
         <img src="pu_logo.png" alt="Organization Logo" class="logo" width="200" height="4600">
-        <h1 class="title">PU BS SLIPS DOWNLOADER FOR AFFIALTED COLLEGES</h1>
+        <h1 class="title">DOWNLOAD PU EXAMS SLIPS (AFFILIATED COLLEGES)</h1>
         <form id="resultForm" class="form">
             <div class="form-group">
-                <label for="rollNumber" class="label">Roll Number:</label>
+                <label for="rollNumber" class="label">University Roll Number:</label>
                 <input type="text" id="rollNumber" name="rollNumber" class="input" required>
             </div>
             <div class="button-group">
                 <button type="button" onclick="downloadSlips()" class="download-button">Download</button>
-                <button type="button" onclick="clearForm()" class="clear-button">Clear</button>
-            </div>
-            <div class="bottom-center">
-                Copyright &copy; Kanwar Adnan
             </div>
         </form>
         <div id="resultMessage" class="result-message"></div>
     </div>
+    <footer class="footer">
+        <div class="bottom-center">
+            Copyright &copy; Kanwar Adnan
+            <!-- Add social media links -->
+            <a href="https://wa.me/+923180609293" target="_blank">WhatsApp</a> |
+            <a href="https://github.com/kanwaradnan" target="_blank">GitHub</a> |
+            <a href="https://www.facebook.com/kanwaradnanakhtar" target="_blank">Facebook</a>
+        </div>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>

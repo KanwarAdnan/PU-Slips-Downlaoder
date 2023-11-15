@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
-
 function downloadSlips() {
     const rollNumber = document.getElementById('rollNumber').value;
 
@@ -20,6 +19,9 @@ function downloadSlips() {
     }
 
     const apiUrl = `https://api_last-1-j0851899.deta.app/download_slip?roll_no=${rollNumber}`;
+
+    // Display loading message
+    document.getElementById('resultMessage').innerHTML = 'Downloading...';
 
     // Create form data
     const formData = new FormData();
@@ -53,13 +55,17 @@ function downloadSlips() {
                 document.body.removeChild(link);
                 // Release the object URL
                 window.URL.revokeObjectURL(link.href);
+
+                // Clear loading message
+                document.getElementById('resultMessage').innerHTML = '';
             } else {
                 throw new Error("The slip download failed. It's possible that the slip is not available because Punjab University hasn't uploaded it yet, or you may not be registered. Please check your registration status and try again later.");
             }
         })
         .catch((error) => {
             console.error('Error:', error.message);
-            alert(error.message);
+            // Display error message
+            document.getElementById('resultMessage').innerHTML = error.message;
         });
 }
 
