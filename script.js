@@ -35,7 +35,7 @@ function downloadSlips() {
         .then((response) => {
             console.log('Response status:', response.status);
             if (!response.ok) {
-                throw new Error("The slip download failed. It's possible that the slip is not available because Punjab University hasn't uploaded it yet, or you may not be registered. Please check your registration status and try again later.");
+                throw new Error("The slip download failed. It's possible that the slip is not available because Punjab University hasn't uploaded it yet, you may not be registered, you may be dropped, or you may be alumni. Please check your registration status and try again later.");
             }
             return response.blob();
         })
@@ -58,8 +58,9 @@ function downloadSlips() {
 
                 // Clear loading message
                 document.getElementById('resultMessage').innerHTML = '';
+                clearForm();
             } else {
-                throw new Error("The slip download failed. It's possible that the slip is not available because Punjab University hasn't uploaded it yet, or you may not be registered. Please check your registration status and try again later.");
+                throw new Error("The slip download failed. It's possible that the slip is not available because Punjab University hasn't uploaded it yet, you may not be registered, you may be dropped, or you may be alumni. Please check your registration status and try again later.");
             }
         })
         .catch((error) => {
@@ -68,7 +69,6 @@ function downloadSlips() {
             document.getElementById('resultMessage').innerHTML = error.message;
         });
 }
-
 
 
 function clearForm() {
