@@ -3,32 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PU BS SLIPS</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="styles.css">
-	</head>
+    <title>Modern Exam Slip Download</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
 <body>
-    <div class="container mt-5">
-        <img src="pu_logo.png" alt="Organization Logo" class="logo img-fluid" width="200" height="120">
-        <img src="jamiyat_gcs_logo.png" alt="Organization Logo" class="logo img-fluid" width="200" height="120">
-        <h1 class="title mt-3">DOWNLOAD PU EXAMS SLIPS (AFFILIATED COLLEGES)</h1>
-        <form id="resultForm" class="form">
-            <div class="form-group">
+    <header>
+        <div class="container">
+			<img src="logo.png" alt="Logo" class="logo" width="200" height="120">
+			<img src="jamiyat_gcs_logo.png" alt="Islami Jamiyat Talaba" class="logo" width="200" height="120">
+            <h1 class="title">Download Your Exam Slips</h1>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <form id="slipForm" class="form">
                 <label for="rollNumber" class="label">University Roll Number:</label>
-                <input type="text" id="rollNumber" name="rollNumber" class="form-control" required>
-                <button type="button" onclick="downloadSlips()" class="btn btn-primary mt-3">Download</button>
-            </div>
-        <div id="resultMessage" class="result-message"></div>
-        <!-- Footer at the bottom of the form area -->
-            <div class="bottom-center">
-                Copyright &copy; Kanwar Adnan |
-                <a href="https://wa.me/+923180609293" target="_blank" class="text-black">WhatsApp</a> |
-                <a href="https://github.com/kanwaradnan" target="_blank" class="text-black">GitHub</a> 
-            </div>
-    </div>
-        </form>
+                <input type="text" id="rollNumber" name="rollNumber" class="input" required>
+                <button type="button" onclick="downloadSlips()" class="download-button">Download</button>
+                <div id="resultMessage" class="result-message"></div>
+            </form>
+        </div>
+    </main>
+
+	<footer>
+		<div class="container">
+			<p>&copy; 2023 Kanwar Adnan. All rights reserved. | 
+				<a href="https://wa.me/+123456789" target="_blank">WhatsApp</a> | 
+				<a href="https://github.com/yourusername" target="_blank">GitHub</a></p>
+		</div>
+	</footer>
+
     <script src="script.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>
