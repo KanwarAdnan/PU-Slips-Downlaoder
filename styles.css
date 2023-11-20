@@ -88,3 +88,10 @@ footer {
     text-decoration: none;
     margin: 0 10px;
 }
+
+/* Add padding to the icons for better spacing and set the color to white */
+.footer a i {
+    margin-right: 5px;
+    color: #fff;
+}
+
