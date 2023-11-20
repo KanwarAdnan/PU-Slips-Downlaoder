@@ -6,15 +6,27 @@ document.addEventListener('DOMContentLoaded', function () {
         if (event.key === 'Enter') {
             // Prevent the default form submission behavior
             event.preventDefault();
-            downloadResults();
+            downloadSlips();
         }
     });
 });
+
+
+function validateRollNumber(rollNumber) {
+    const rollNumberPattern = /^[0-9]{5,6}$/;
+    return rollNumberPattern.test(rollNumber);
+}
+
 function downloadSlips() {
     const rollNumber = document.getElementById('rollNumber').value;
 
     if (!rollNumber) {
         alert('Please enter a roll number.');
+        return;
+    }
+
+    if (!validateRollNumber(rollNumber)) {
+        alert('Please enter a valid 5 to 6 digit roll number.');
         return;
     }
 
