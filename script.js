@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function validateRollNumber(rollNumber) {
-    const rollNumberPattern = /^[0-9]{5,6}$/;
+    const rollNumberPattern = /^[0-9]{4,6}$/;
     return rollNumberPattern.test(rollNumber);
 }
 
@@ -26,7 +26,7 @@ function downloadSlips() {
     }
 
     if (!validateRollNumber(rollNumber)) {
-        resultMessage.innerHTML = 'Please enter a valid 5 to 6 digit roll number.';
+        resultMessage.innerHTML = 'Please enter a valid 4 to 6 digit roll number.';
         return;
     }
 
