@@ -17,6 +17,7 @@ function validateRollNumber(rollNumber) {
 
 function downloadSlips() {
     const rollNumber = document.getElementById('rollNumber').value;
+    const slipType = document.getElementById('slipType').value; // Get the selected slip type
     const resultMessage = document.getElementById('resultMessage');
 
     if (!rollNumber) {
@@ -29,7 +30,12 @@ function downloadSlips() {
         return;
     }
 
-    const apiUrl = `https://api_last-1-j0851899.deta.app/download_slip?roll_no=${rollNumber}`;
+    let apiUrl;
+    if (slipType === 'exam') {
+        apiUrl = `https://api_last-1-j0851899.deta.app/download_slip?roll_no=${rollNumber}`;
+    } else if (slipType === 'practical') {
+        apiUrl = `https://api_last-1-j0851899.deta.app/download_practical_slip?roll_no=${rollNumber}`;
+    }
 
     resultMessage.innerHTML = 'Downloading...';
 
@@ -51,7 +57,7 @@ function downloadSlips() {
             if (blob) {
                 const link = document.createElement('a');
                 link.href = window.URL.createObjectURL(blob);
-                link.download = `Slips_${rollNumber}.pdf`;
+                link.download = `${slipType.charAt(0).toUpperCase() + slipType.slice(1)}_Slips_${rollNumber}.pdf`;
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
@@ -69,6 +75,7 @@ function downloadSlips() {
             resultMessage.innerHTML = '';
         });
 }
+
 
 function clearForm() {
     document.getElementById('rollNumber').value = '';

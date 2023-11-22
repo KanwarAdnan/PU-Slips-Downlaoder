@@ -154,6 +154,12 @@
     <main>
         <div class="container">
             <form id="slipForm" class="form">
+<!-- Add this code inside your form -->
+<label for="slipType" class="label">Select Slip Type:</label>
+<select id="slipType" name="slipType" class="input">
+    <option value="exam" selected>Exam Slips</option>
+    <option value="practical">Practical Slips</option>
+</select>
                 <label for="rollNumber" class="label">University Roll Number:</label>
                 <input type="text" id="rollNumber" name="rollNumber" class="input" required>
                 <button type="button" onclick="downloadSlips()" class="download-button">Download</button>
