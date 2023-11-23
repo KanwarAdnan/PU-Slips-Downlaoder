@@ -3,187 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css"> <!-- Add your custom styles here -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-rJSKPIJ5r1Y1a8IXz67BoWtGBr1/FhcH5LzgCGTYKVwUbGwbWl0S8Uzp8iVmmiY9" crossorigin="anonymous">
     <title>PU Exam Slip Download</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        header, .hero {
-            background-color: #25525E;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
-        }
-
-        .hero {
-            background-color: #25525E;
-            color: #fff;
-            padding: 30px 0; /* Reduced the height */
-        }
-
-        .hero h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            font-size: 18px;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .container {
-            width: 80%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-
-        .logo{
-            width: 90px;
-            height: 100px;
-            margin-right: 20px;
-        }
-
-        .ijt-logo {
-            width: 90px !important;
-            height: 100px !important; 
-            margin-right: 20px;
-            margin-bottom: 20px;
-        }
-		
-        .title {
-            font-size: 28px;
-            margin: 0;
-        }
-
-        main {
-            padding: 40px 0;
-            background-color: #f5f5f5;
-        }
-
-        form {
-            max-width: 400px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-        }
-
-        label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: bold;
-            color: #333;
-        }
-
-        .input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-
-        .download-button {
-            background-color: #25525E;
-            color: #fff;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .result-message {
-            margin-top: 20px;
-            font-weight: bold;
-            color: #e74c3c;
-        }
-
-        footer {
-            background-color: #25525E;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-            width: 100%;
-            position: relative;
-            bottom: 0;
-        }
-
-        .footer a {
-            color: #fff !important;
-            text-decoration: none;
-            margin: 0 10px;
-            font-size: 20px;
-        }
-    </style>
 </head>
 <body>
-    <header>
+
+	<div id="logoCarousel" class="carousel slide" data-ride="carousel">
+	  <div class="carousel-inner">
+		<div class="carousel-item active">
+		  <a class="navbar-brand" href="http://www.pu.edu.pk/" target="_blank">
+			<img src="logo.png" alt="Logo" class="logo">
+		  </a>
+		</div>
+		<div class="carousel-item">
+		  <a class="navbar-brand" href="https://www.facebook.com/voiceofgcs" target="_blank">
+			<img src="jamiyat_gcs_logo.png" alt="Islami Jamiyat Talaba" class="ijt-logo">
+		  </a>
+		</div>
+	  </div>
+	  <a class="carousel-control-prev" href="#logoCarousel" role="button" data-slide="prev">
+		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		<span class="sr-only">Previous</span>
+	  </a>
+	  <a class="carousel-control-next" href="#logoCarousel" role="button" data-slide="next">
+		<span class="carousel-control-next-icon" aria-hidden="true"></span>
+		<span class="sr-only">Next</span>
+	  </a>
+	</div>
+
+    <!-- Hero Section -->
+    <section class="bg-light py-5">
         <div class="container">
-            <div class="logo-container">
-                <img src="logo.png" alt="Logo" class="logo">
-                <img src="jamiyat_gcs_logo.png" alt="Islami Jamiyat Talaba" class="ijt-logo">
+            <div class="row">
+				<div class="col-md-6">
+					<h2 class="display-4">Download Your Slips</h2>
+					<p class="lead">Download your exam slips quickly and easily by entering your university roll number.</p>
+					<p>Explore additional resources and affiliations:</p>
+					<ul>
+						<li><a href="https://www.facebook.com/voiceofgcs" target="_blank">Islami Jamiat Talba, Government Graduate College of Science</a> - Stay connected with our organization for updates and announcements.</li>
+						<li><a href="http://pu.edu.pk/splash/allied" target="_blank">Official Link to Punjab University Slips</a> - Access your official exam slips directly from the Punjab University portal.</li>
+					</ul>
+				</div>
+                <div class="col-md-6">
+                    <!-- Slip Download Form -->
+                    <form id="slipForm" class="form">
+                        <div class="form-group">
+                            <label for="slipType">Select Slip Type:</label>
+                            <select id="slipType" name="slipType" class="form-control">
+                                <option value="exam" selected>Exam Slips</option>
+                                <option value="practical">Practical Slips</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="rollNumber">University Roll Number:</label>
+                            <input type="text" id="rollNumber" name="rollNumber" class="form-control" required>
+                        </div>
+                        <button type="button" onclick="downloadSlips()" class="btn btn-primary btn-lg">Download</button>
+                        <div id="resultMessage" class="result-message mt-3"></div>
+                    </form>
+                </div>
             </div>
-            <h1 class="title">Welcome to PU BS Exams Portal</h1>
         </div>
-    </header>
+    </section>
 
-    <div class="hero">
-        <div class="container">
-            <h1>Download Your BS Exam Slips</h1>
-            <p>Download your BS exam slips and practical quickly and easily, By entering your university roll number below.</p>
-            <p>Check out our page <a href="https://www.facebook.com/voiceofgcs" target="_blank" style="color: #fff; text-decoration: underline;">Islami Jamiat Talba, Science College.</a> </p>
-        </div>
-    </div>
-
-    <main>
-        <div class="container">
-            <form id="slipForm" class="form">
-<!-- Add this code inside your form -->
-<label for="slipType" class="label">Select Slip Type:</label>
-<select id="slipType" name="slipType" class="input">
-    <option value="exam" selected>Exam Slips</option>
-    <option value="practical">Practical Slips</option>
-</select>
-                <label for="rollNumber" class="label">University Roll Number:</label>
-                <input type="text" id="rollNumber" name="rollNumber" class="input" required>
-                <button type="button" onclick="downloadSlips()" class="download-button">Download</button>
-                <div id="resultMessage" class="result-message"></div>
-            </form>
-        </div>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; <span id="year"></span> Kanwar Adnan. | 
-                <a href="https://www.facebook.com/kanwaradnanakhtar" target="_blank" style="color: #fff;">
-                    <i class="fab fa-facebook"></i>
-                </a> |
-                <a href="https://github.com/kanwaradnan" target="_blank" style="color: #fff;">
-                    <i class="fab fa-github"></i>
-                </a>|
-                <a href="https://wa.me/+923180609293" target="_blank" style="color: #fff;">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
+    <!-- Footer Section -->
+    <footer class="text-white py-4 fixed-bottom">
+        <div class="container text-center">
+            <p>Copyright &copy; <span id="year"></span> Kanwar Adnan.
             </p>
         </div>
     </footer>
+<section class="developer-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h2 class="display-5">About the Developer</h2>
+                <p class="lead">Hi, I'm Kanwar Adnan, the developer behind this exam slip download portal. If you have any questions, feedback, or technical inquiries, feel free to reach out.</p>
+				<ul class="list-unstyled social-icons">
+					<li><a href="https://www.facebook.com/kanwaradnanakhtar" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
+					<li><a href="https://github.com/kanwaradnan" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+					<li><a href="https://wa.me/+923180609293" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+				</ul>
 
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Bootstrap JS and Custom Script -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

@@ -1,84 +1,268 @@
+/* Custom Styles */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
 }
 
-header {
+/* Header Styles */
+.navbar {
+    background-color: #25525E !important; /* Important to ensure it overrides Bootstrap */
+}
+
+
+.carousel {
+    width: 100%;
+    margin: auto;
     background-color: #25525E;
-    color: #fff;
-    padding: 20px 0;
 }
 
-.container {
-    width: 80%;
-    max-width: 1200px;
-    margin: 0 auto;
+.carousel-item {
+    text-align: center;
+}
+
+.carousel-item img {
+    max-width: 100%;
+    height: 110px;
+    display: inline-block;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    height: 70px;
+    width: 70px;
+    outline: black;
+    background-size: 100%, 100%;
+    background-image: none;
+}
+
+.carousel-control-next-icon:after
+{
+    content: '>';
+    font-size: 55px;
+    color: #FFFFFF; /* Changed color to white */
+}
+
+.carousel-control-prev-icon:after {
+    content: '<';
+    font-size: 55px;
+    color: #FFFFFF; /* Changed color to white */
 }
 
 .logo {
-    width: 100px !important;
-    height: 120px !important;
+    width: 90px;
+	height: 100px;
+}
+
+.ijt-logo {
+    width: 80px;
+	height: 100px;
+}
+
+@media (min-width: 576px) {
+    .logo {
+        width: 70px;
+    }
+
+    .ijt-logo {
+        width: 70px;
+    }
+}
+
+
+/* Header Section Styles */
+header {
+    background-color: #25525E; /* Original color */
+    color: #fff;
+    padding: 80px 0;
+}
+
+/* Hero Section Styles */
+section {
+    padding: 60px 0;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 90px;
+    height: 110px;
     margin-right: 20px;
-    margin-bottom: 20px;
 }
 
-.title {
-    font-size: 28px;
-    margin: 0;
+.ijt-logo {
+    width: 80px;
+    height: 90px;
+    margin-right: 20px;
 }
 
-main {
-    padding: 40px 0;
-    background-color: #fff;
-}
-
-form {
-    max-width: 400px;
+/* Slip Download Form Styles */
+.form {
+    max-width: 600px;
     margin: 0 auto;
-    background-color: #fff; /* Changed the background color to white */
+    background-color: #fff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
-
-.label {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-
-.input {
-    width: 100%;
-    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
+    transition: transform 0.3s ease-in-out;
+
+    /* Optional: Adding a subtle pattern for more visual interest */
+    background-size: 200% 200%;
+    animation: gradient-animation 4s infinite alternate;
 }
 
-.download-button {
-    background-color: #25525E;
+.form:hover {
+    transform: scale(1.02);
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 200% 200%;
+    }
+}
+
+/* Input and Select Styles */
+.form-control {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.form-control:hover {
+    border-color: #95a5a6;
+}
+
+.form-control:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+}
+
+/* Download Button Styles */
+.btn-primary {
+    background-color: #25525E; /* Original color */
     color: #fff;
     padding: 12px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.btn-primary::before {
+    content: '\2193';
+    font-size: 20px;
+    margin-right: 8px;
+}
+
+.btn-primary:hover {
+    background-color: #1f4b56; /* Darker original color on hover */
+    transform: scale(1.05);
+}
+
+/* Result Message Styles */
 .result-message {
     margin-top: 20px;
     font-weight: bold;
     color: #e74c3c;
+    font-size: 18px;
+    transition: color 0.3s ease-in-out;
+    background-color: rgba(231, 76, 60, 0.1);
+    box-shadow: 0 2px 4px rgba(231, 76, 60, 0.3);
 }
 
+.result-message:hover {
+    color: #c0392b;
+    background-color: rgba(231, 76, 60, 0.2);
+}
+
+/* Footer Styles */
 footer {
-    background-color: #25525E;
+    background-color: #25525E; /* Original color */
     color: #fff;
-    padding: 10px 0;
+    padding: 20px 0;
     text-align: center;
     position: fixed;
     bottom: 0;
     width: 100%;
+    left: 0; /* Add left: 0; to ensure full width */
+    z-index: 1000; /* Add z-index to place it above other elements */
+}
+
+/* Your Name Styles */
+footer p {
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+/* Footer Link Styles */
+footer a {
+    color: #fff !important;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 15px;
+}
+
+/* Hover effect for footer links */
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Media Queries for Smaller Screens */
+@media only screen and (max-width: 767px) {
+    header {
+        padding: 60px 0;
+    }
+
+    .form {
+        max-width: 100%;
+        margin-bottom: 60px; /* Adjust spacing for smaller screens */
+    }
+
+    footer p,
+    footer a {
+        font-size: 14px;
+    }
+}
+
+
+/* Developer Information Section Styles */
+.developer-section {
+    background-color: #25525E; /* Match the theme color */
+    color: #fff;
+    padding: 60px 0;
+}
+
+.developer-section h2 {
+    color: #fff;
+}
+
+.developer-section p {
+    font-size: 18px;
+}
+
+.developer-section .social-icons {
+    margin-top: 20px;
+}
+
+.developer-section .social-icons li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.developer-section .social-icons a {
+    color: #fff;
+    font-size: 24px;
+    transition: color 0.3s ease-in-out;
+}
+
+.developer-section .social-icons a:hover {
+    color: #f4f4f4; /* Darker original color on hover */
 }
