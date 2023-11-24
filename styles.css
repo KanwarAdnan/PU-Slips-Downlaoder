@@ -38,33 +38,13 @@ body {
 {
     content: '>';
     font-size: 55px;
-    color: #FFFFFF; /* Changed color to white */
+    color: #25525E; /* Changed color to white */
 }
 
 .carousel-control-prev-icon:after {
     content: '<';
     font-size: 55px;
-    color: #FFFFFF; /* Changed color to white */
-}
-
-.logo {
-    width: 90px;
-	height: 100px;
-}
-
-.ijt-logo {
-    width: 80px;
-	height: 100px;
-}
-
-@media (min-width: 576px) {
-    .logo {
-        width: 70px;
-    }
-
-    .ijt-logo {
-        width: 70px;
-    }
+    color: #25525E; /* Changed color to white */
 }
 
 
@@ -87,15 +67,28 @@ section {
 
 .logo {
     width: 90px;
-    height: 110px;
+    height: 100px;
     margin-right: 20px;
 }
 
 .ijt-logo {
     width: 100px;
-    height: 90px;
+    height: 60px;
     margin-right: 20px;
 }
+
+@media (min-width: 576px) {
+    .logo {
+        width: 80px;
+		height: 130px;
+	}
+
+    .ijt-logo {
+        width: 100px;
+		height: 90px;
+    }
+}
+
 
 /* Slip Download Form Styles */
 .form {
