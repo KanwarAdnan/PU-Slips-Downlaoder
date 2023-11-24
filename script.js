@@ -36,6 +36,9 @@ function downloadSlips() {
     } else if (slipType === 'practical') {
         apiUrl = `https://api_last-1-j0851899.deta.app/download_practical_slip?roll_no=${rollNumber}`;
     }
+    else if (slipType === 'adp') {
+        apiUrl = `https://api_last-1-j0851899.deta.app/download_adp_slip?roll_no=${rollNumber}`;
+    }
 
     resultMessage.innerHTML = 'Downloading...';
 
