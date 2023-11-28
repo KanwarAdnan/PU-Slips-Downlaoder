@@ -110,12 +110,17 @@ function downloadSlips() {
 }
 
 function getApiUrl(slipType, rollNumber) {
+   // Old API URL
+   // const oldBaseUrl = 'https://api_last-1-j0851899.deta.app/';
+
+   const baseUrl = 'https://kanwaradnanpusms-vvicnw7txq-uc.a.run.app/';
+
    if (slipType === 'exam') {
-      return `https://api_last-1-j0851899.deta.app/download_slip?roll_no=${rollNumber}`;
+      return `${baseUrl}download_slip?roll_no=${rollNumber}`;
    } else if (slipType === 'practical') {
-      return `https://api_last-1-j0851899.deta.app/download_practical_slip?roll_no=${rollNumber}`;
+      return `${baseUrl}download_practical_slip?roll_no=${rollNumber}`;
    } else if (slipType === 'adp') {
-      return `https://api_last-1-j0851899.deta.app/download_adp_slip?roll_no=${rollNumber}`;
+      return `${baseUrl}download_adp_slip?roll_no=${rollNumber}`;
    }
 }
 
