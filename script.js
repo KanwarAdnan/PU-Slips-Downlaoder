@@ -57,56 +57,7 @@ function downloadSlips() {
    setTimeout(() => {
       resultMessage.innerHTML = 'Download successful!';
       clearForm();
-
-      // Display the manual download message
-      const manualDownloadMessage = document.createElement('p');
-      manualDownloadMessage.innerHTML = `Slip for ${rollNumber} did not download automatically? You can <a href="#" id="manualDownloadLink">click here</a> for manual download.`;
-
-      // Create a close button for manual download
-      const closeButton = document.createElement('button');
-      closeButton.innerText = 'Close';
-      closeButton.className = 'close-button'; // Add the close button class
-      closeButton.addEventListener('click', function () {
-         // Remove the manual download message and the close button
-         resultMessage.removeChild(manualDownloadMessage);
-         resultMessage.removeChild(closeButton);
-      });
-
-      // Create and append the manual download link and the close button
-      resultMessage.appendChild(manualDownloadMessage);
-      resultMessage.appendChild(closeButton);
-
-      const manualDownloadLink = document.getElementById('manualDownloadLink');
-      manualDownloadLink.addEventListener('click', function () {
-         // Create and submit the same form for manual download
-         const manualForm = document.createElement('form');
-         manualForm.style.display = 'none';
-         manualForm.method = 'POST';
-         manualForm.action = apiUrl;
-   
-         const manualInput = document.createElement('input');
-         manualInput.type = 'hidden';
-         manualInput.name = 'roll_no';
-         manualInput.value = rollNumber;
-   
-         manualForm.appendChild(manualInput);
-         document.body.appendChild(manualForm);
-   
-         // Display "Downloading..." during the manual form submission
-         const manualDownloadingMessage = document.createElement('p');
-         manualDownloadingMessage.innerHTML = 'Downloading...';
-         resultMessage.appendChild(manualDownloadingMessage);
-   
-         // Submit the manual form
-         manualForm.submit();
-   
-         // Clean up the manual form after submission
-         document.body.removeChild(manualForm);
-   
-         // Remove the "Downloading..." message
-         resultMessage.removeChild(manualDownloadingMessage);
-      });
-   }, 1500); // Adjust the delay (in milliseconds) as needed
+      },2000); // Adjust the delay (in milliseconds) as needed
 }
 
 function getApiUrl(slipType, rollNumber) {
