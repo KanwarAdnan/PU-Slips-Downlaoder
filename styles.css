@@ -259,20 +259,3 @@ footer a:hover {
 .developer-section .social-icons a:hover {
     color: #f4f4f4; /* Darker original color on hover */
 }
-
-/* Close Button Styles */
-.close-button {
-    background-color: #c0392b; /* Darker red color */
-    color: #fff;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    margin-top: 10px;
-    transition: background-color 0.3s ease-in-out;
-}
-
-.close-button:hover {
-    background-color: #962d23; /* Darker red color on hover */
-}
