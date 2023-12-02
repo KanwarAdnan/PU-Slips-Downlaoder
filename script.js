@@ -17,7 +17,7 @@ function validateRollNumber(rollNumber) {
 function downloadSlips() {
    const rollNumberInput = document.getElementById('rollNumber');
    const rollNumber = rollNumberInput.value;
-   const slipType = document.getElementById('slipType').value; // Get the selected slip type
+   const slipType = document.getElementById('slipType').value;
    const resultMessage = document.getElementById('resultMessage');
 
    if (!rollNumber) {
@@ -31,34 +31,55 @@ function downloadSlips() {
    }
 
    const apiUrl = getApiUrl(slipType, rollNumber);
-   resultMessage.innerHTML = 'Processing, Download will begin shortly...'; // Display processing message
+   resultMessage.innerHTML = 'Processing, Download will begin shortly...';
 
-   // Create a form dynamically for a POST request
-   const form = document.createElement('form');
-   form.style.display = 'none';
-   form.method = 'POST';
-   form.action = apiUrl;
+   // Create a data object for the request body
+   const data = {
+      roll_no: rollNumber
+   };
 
-   const input = document.createElement('input');
-   input.type = 'hidden';
-   input.name = 'roll_no';
-   input.value = rollNumber;
+   // Use Fetch API to make a POST request with headers
+   fetch(apiUrl, {
+      method: 'POST',
+      headers: {
+         'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+   })
+   .then(response => {
+      if (!response.ok) {
+         throw new Error(`Please Check your registeration status`);
+      }
 
-   form.appendChild(input);
-   document.body.appendChild(form);
+      const contentType = response.headers.get('content-type');
+      if (contentType && contentType.includes('application/pdf')) {
+         return response.blob();
+      } else {
+         throw new Error(`Invalid content type: ${contentType}`);
+      }
+   })
+   .then(blob => {
+      // Create a download link for the blob data (PDF)
+      const url = window.URL.createObjectURL(new Blob([blob]));
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'downloaded_slip.pdf';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      window.URL.revokeObjectURL(url);
 
-   // Submit the form
-   form.submit();
-
-   // Clean up the form after submission
-   document.body.removeChild(form);
-
-   // Display download successful message after a delay to simulate processing
-   setTimeout(() => {
+      // Display download successful message
       resultMessage.innerHTML = 'Download successful!';
       clearForm();
-      },2000); // Adjust the delay (in milliseconds) as needed
+   })
+   .catch(error => {
+      // Handle errors
+      console.error('Error:', error.message);
+      resultMessage.innerHTML = `Error during download: ${error.message}.`;
+   });
 }
+
 
 function getApiUrl(slipType, rollNumber) {
    // Old API URL
@@ -67,11 +88,9 @@ function getApiUrl(slipType, rollNumber) {
    const baseUrl = 'https://kanwaradnanpusms-vvicnw7txq-uc.a.run.app/';
 
    if (slipType === 'exam') {
-      return `${baseUrl}download_slip?roll_no=${rollNumber}`;
-   } else if (slipType === 'practical') {
-      return `${baseUrl}download_practical_slip?roll_no=${rollNumber}`;
+      return `${baseUrl}download_slip`;
    } else if (slipType === 'adp') {
-      return `${baseUrl}download_adp_slip?roll_no=${rollNumber}`;
+      return `${baseUrl}download_adp_slip`;
    }
 }
 
