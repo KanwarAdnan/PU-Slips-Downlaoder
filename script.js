@@ -83,14 +83,16 @@ function downloadSlips() {
 
 function getApiUrl(slipType, rollNumber) {
    // Old API URL
-   // const oldBaseUrl = 'https://api_last-1-j0851899.deta.app/';
+   const baseUrl = 'https://api_last-1-j0851899.deta.app/';
 
-   const baseUrl = 'https://kanwaradnanpusms-vvicnw7txq-uc.a.run.app/';
+   //const baseUrl = 'https://kanwaradnanpusms-vvicnw7txq-uc.a.run.app/';
 
    if (slipType === 'exam') {
       return `${baseUrl}download_slip`;
    } else if (slipType === 'adp') {
       return `${baseUrl}download_adp_slip`;
+   } else if (slipType === 'prc') {
+      return `${baseUrl}download_practical_slip`;
    }
 }
 
