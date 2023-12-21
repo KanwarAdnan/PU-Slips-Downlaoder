@@ -92,7 +92,7 @@ function getApiUrl(slipType, rollNumber) {
    } else if (slipType === 'adp') {
       return `${baseUrl}download_adp_slip`;
    } else if (slipType === 'prc') {
-      return `${baseUrl}download_practical_slip`;
+      return `${baseUrl}download_practical_slip`; // fixed
    }
 }
 
