@@ -6,43 +6,86 @@
     <meta name="description" content="Download your PU Slips easily and quickly.">
     <link rel="canonical" href="https://kanwaradnan.github.io/PU-Slips-Downlaoder/" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css"> <!-- Add your custom styles here -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-rJSKPIJ5r1Y1a8IXz67BoWtGBr1/FhcH5LzgCGTYKVwUbGwbWl0S8Uzp8iVmmiY9" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="styles.css">
     <title>PU Exam Slip Download</title>
-	<script>
-	.button {
-	    width: 120px;
-	    height: 60px;
-	    font-size: 1.2em;
-	}
-	body {
-	    font-size: 16px; /* Example base font size */
-	}
-	
-	h1 {
-	    font-size: 2em; /* Example heading font size */
-	}
-	
-	p {
-	    font-size: 1em; /* Example paragraph font size */
-	}
 
-	</script>
+    <script>
+        function cacheResources() {
+            const cacheName = 'kanwar_sd_cache';
+            const cacheVersion = 1;
+    
+            const resourcesToCache = [
+                'styles.css',
+                'script.js',
+                'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css',
+                'https://code.jquery.com/jquery-3.5.1.slim.min.js',
+                'https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js',
+                'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js'
+            ];
+    
+            // Explicitly cache the logos
+            const logosToCache = [
+                'logo.png',
+                'jamiyat_gcs_logo.png'
+            ];
+    
+            if (typeof(Storage) !== "undefined") {
+                const cachedVersion = localStorage.getItem('cachedVersion');
+    
+                if (!cachedVersion || parseInt(cachedVersion, 10) < cacheVersion) {
+                    clearCache(cacheName);
+                    localStorage.setItem('cachedVersion', cacheVersion);
+                }
+    
+                resourcesToCache.forEach(resource => {
+                    cacheResource(`${cacheName}_${cacheVersion}_${resource}`, resource);
+                });
+    
+                logosToCache.forEach(logo => {
+                    cacheResource(`${cacheName}_${cacheVersion}_${logo}`, logo);
+                });
+            }
+        }
+    
+        function clearCache(cacheName) {
+            Object.keys(localStorage)
+                .filter(key => key.startsWith(`${cacheName}_`))
+                .forEach(key => localStorage.removeItem(key));
+        }
+    
+        function cacheResource(cacheKey, resource) {
+            const cachedResource = localStorage.getItem(cacheKey);
+            if (!cachedResource) {
+                fetch(resource)
+                    .then(response => response.text())
+                    .then(content => {
+                        localStorage.setItem(cacheKey, content);
+                    })
+                    .catch(error => {
+                        console.error(`Error caching ${resource}:`, error);
+                    });
+            }
+        }
+    
+        window.addEventListener('load', cacheResources);
+    </script>
 </head>
 <body>
 
 	<div id="logoCarousel" class="carousel slide" data-ride="carousel">
 	  <div class="carousel-inner">
-		<div class="carousel-item active">
-		  <a class="navbar-brand" href="http://www.pu.edu.pk/" target="_blank">
-			<img src="logo.png" alt="Logo" class="logo">
-		  </a>
-		</div>
-		<div class="carousel-item">
-		  <a class="navbar-brand" href="https://www.facebook.com/voiceofgcs" target="_blank">
-			<img src="jamiyat_gcs_logo.png" alt="Islami Jamiyat Talaba" class="ijt-logo">
-		  </a>
-		</div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <a class="navbar-brand" href="http://www.pu.edu.pk/" target="_blank">
+                    <img src="logo.png" alt="Logo" class="logo" loading="lazy" loading="lazy" width="200" height="50">
+                </a>
+            </div>
+            <div class="carousel-item">
+                <a class="navbar-brand" href="https://www.facebook.com/voiceofgcs" target="_blank">
+                    <img src="jamiyat_gcs_logo.png" alt="Islami Jamiyat Talaba" class="ijt-logo" loading="lazy" width="200" height="50">
+                </a>
+            </div>
+        </div>
 	  </div>
 	  <a class="carousel-control-prev" href="#logoCarousel" role="button" data-slide="prev">
 		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -112,7 +155,7 @@
         <div class="row">
             <div class="col-md-12 text-center">
                 <h2 class="display-5">About the Developer</h2>
-                <p class="lead">Hi, I'm Kanwar Adnan, currently studying BSIT in 6th Semester at GGCS, the developer behind this exam slip download portal. If you have any questions, feedback, or technical inquiries, feel free to reach out.</p>
+                <p class="lead">Hi, I'm Kanwar Adnan, currently studying BSIT in 7th Semester at GGCS, the developer behind this exam slip download portal. If you have any questions, feedback, or technical inquiries, feel free to reach out.</p>
 				<ul class="list-unstyled social-icons">
 					<li><a href="https://www.facebook.com/kanwaradnanakhtar" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
 					<li><a href="https://github.com/kanwaradnan" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>

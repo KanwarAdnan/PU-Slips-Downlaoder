@@ -1,3 +1,4 @@
+
 /* Custom Styles */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -276,3 +277,20 @@ footer a:hover {
 .close-button:hover {
     background-color: #962d23; /* Darker red color on hover */
 }
+
+	button {
+	    width: 130px;
+	    height: 60px;
+	    font-size: 1.2em;
+	}
+	body {
+	    font-size: 16px; /* Example base font size */
+	}
+	
+	h1 {
+	    font-size: 2em; /* Example heading font size */
+	}
+	
+	p {
+	    font-size: 1em; /* Example paragraph font size */
+	}
