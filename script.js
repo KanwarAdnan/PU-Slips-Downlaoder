@@ -22,7 +22,7 @@ function validateRollNumber(rollNumber) {
 function downloadSlips() {
    const rollNumberInput = document.getElementById('rollNumber');
    const rollNumber = rollNumberInput.value;
-   const slipType = document.getElementById('slipType').value;
+   const slipType = document.getElementById('slipType').value; // Get the selected slip type
    const resultMessage = document.getElementById('resultMessage');
 
    if (!rollNumber) {
@@ -36,54 +36,29 @@ function downloadSlips() {
    }
 
    const apiUrl = getApiUrl(slipType, rollNumber);
-   resultMessage.innerHTML = 'Processing, Download will begin shortly...';
+   resultMessage.innerHTML = 'Processing, Download will begin shortly...'; // Display processing message
 
-   // Create a data object for the request body
-   const data = {
-      roll_no: rollNumber
-   };
+   // Create a form and submit it
+   const form = document.createElement('form');
+   form.method = 'post';
+   form.action = apiUrl;
 
-   // Use Fetch API to make a POST request with headers
-   fetch(apiUrl, {
-      method: 'POST',
-      headers: {
-         'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-   })
-   .then(response => {
-      if (!response.ok) {
-         throw new Error(`Please Check your registeration status`);
-      }
+   const hiddenField = document.createElement('input');
+   hiddenField.type = 'hidden';
+   hiddenField.name = 'roll_no';
+   hiddenField.value = rollNumber;
 
-      const contentType = response.headers.get('content-type');
-      if (contentType && contentType.includes('application/pdf')) {
-         return response.blob();
-      } else {
-         throw new Error(`Invalid content type: ${contentType}`);
-      }
-   })
-   .then(blob => {
-      // Create a download link for the blob data (PDF)
-      const url = window.URL.createObjectURL(new Blob([blob]));
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'downloaded_slip.pdf';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      window.URL.revokeObjectURL(url);
+   form.appendChild(hiddenField);
+   document.body.appendChild(form);
 
-      // Display download successful message
-      resultMessage.innerHTML = 'Download successful!';
-      clearForm();
-   })
-   .catch(error => {
-      // Handle errors
-      console.error('Error:', error.message);
-      resultMessage.innerHTML = `Error during download: ${error.message}.`;
-   });
+   form.submit();
+
+   // Clean up
+   document.body.removeChild(form);
+   // resultMessage.innerHTML = 'Download initiated!';
+   // clearForm();
 }
+
 
 
 function getApiUrl(slipType, rollNumber) {

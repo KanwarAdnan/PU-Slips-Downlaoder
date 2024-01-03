@@ -12,21 +12,13 @@
     <script>
         function cacheResources() {
             const cacheName = 'kanwar_sd_cache';
-            const cacheVersion = 2;
+            const cacheVersion = 3;
     
             const resourcesToCache = [
-                'styles.css',
-                'script.js',
                 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css',
                 'https://code.jquery.com/jquery-3.5.1.slim.min.js',
                 'https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js',
                 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js'
-            ];
-    
-            // Explicitly cache the logos
-            const logosToCache = [
-                'logo.png',
-                'jamiyat_gcs_logo.png'
             ];
     
             if (typeof(Storage) !== "undefined") {
@@ -40,10 +32,7 @@
                 resourcesToCache.forEach(resource => {
                     cacheResource(`${cacheName}_${cacheVersion}_${resource}`, resource);
                 });
-    
-                logosToCache.forEach(logo => {
-                    cacheResource(`${cacheName}_${cacheVersion}_${logo}`, logo);
-                });
+
             }
         }
     
