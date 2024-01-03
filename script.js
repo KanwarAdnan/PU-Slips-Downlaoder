@@ -37,7 +37,7 @@ function downloadSlips() {
    }
 
    const apiUrl = getApiUrl(slipType, rollNumber);
-   resultMessage.innerHTML = 'Processing, Download will begin shortly...'; // Display processing message
+   // resultMessage.innerHTML = 'Processing, Download will begin shortly...'; // Display processing message
 
    // Create a form and submit it
    const form = document.createElement('form');
