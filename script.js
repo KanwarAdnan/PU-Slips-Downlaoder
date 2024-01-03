@@ -3,8 +3,9 @@ document.addEventListener('DOMContentLoaded', function () {
    rollNumberInput.focus();
 
    // Wake up API
-   // https://kanwaradnanpusms-vvicnw7txq-uc.a.run.app/
-   fetch('https://api_last-1-j0851899.deta.app/')
+   // https://api_last-1-j0851899.deta.app/
+   // 
+   fetch('https://kanwaradnanpusms-vvicnw7txq-uc.a.run.app/')
       .then(response => console.log('API is awake'))
       .catch(error => console.error('Error:', error));
 
@@ -64,9 +65,9 @@ function downloadSlips() {
 
 function getApiUrl(slipType, rollNumber) {
    // Old API URL
-   const baseUrl = 'https://api_last-1-j0851899.deta.app/';
+   // const baseUrl = 'https://api_last-1-j0851899.deta.app/';
 
-   // const baseUrl = 'https://kanwaradnanpusms-vvicnw7txq-uc.a.run.app/';
+   const baseUrl = 'https://kanwaradnanpusms-vvicnw7txq-uc.a.run.app/';
 
    if (slipType === 'exam') {
       return `${baseUrl}download_slip`;
