@@ -1,25 +1,30 @@
 document.addEventListener('DOMContentLoaded', function () {
    const rollNumberInput = document.getElementById('rollNumber');
-   const downloadButton = document.getElementById('downloadButton'); // Assuming the button has an id 'downloadButton'
+   const downloadButton = document.getElementById('downloadButton');
+   const resultMessage = document.getElementById('resultMessage'); // Assuming there is an element with id 'resultMessage'
    rollNumberInput.focus();
    downloadButton.disabled = true; // Disable the button initially
+   resultMessage.innerText = 'Please wait while we are establishing a connection...';
 
    // Wake up API
    fetch('https://kanwaradnanpusms-vvicnw7txq-uc.a.run.app/')
       .then(response => {
          console.log('API is awake');
          downloadButton.disabled = false; // Enable the button once the API is awake
+         resultMessage.innerText = ''; // Clear the message once the connection is established
       })
-      .catch(error => console.error('Error:', error));
+      .catch(error => {
+         console.error('Error:', error);
+         resultMessage.innerText = 'Error establishing connection. Please try again.';
+      });
 
    rollNumberInput.addEventListener('keydown', function (event) {
-      if (event.key === 'Enter') {
+      if (event.key === 'Enter' && !downloadButton.disabled) {
          event.preventDefault();
          downloadSlips();
       }
    });
 });
-
 function validateRollNumber(rollNumber) {
    const rollNumberPattern = /^[0-9]{5,6}$/;
    return rollNumberPattern.test(rollNumber);
