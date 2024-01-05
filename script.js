@@ -1,12 +1,15 @@
 document.addEventListener('DOMContentLoaded', function () {
    const rollNumberInput = document.getElementById('rollNumber');
+   const downloadButton = document.getElementById('downloadButton'); // Assuming the button has an id 'downloadButton'
    rollNumberInput.focus();
+   downloadButton.disabled = true; // Disable the button initially
 
    // Wake up API
-   // https://api_last-1-j0851899.deta.app/
-   // 
    fetch('https://kanwaradnanpusms-vvicnw7txq-uc.a.run.app/')
-      .then(response => console.log('API is awake'))
+      .then(response => {
+         console.log('API is awake');
+         downloadButton.disabled = false; // Enable the button once the API is awake
+      })
       .catch(error => console.error('Error:', error));
 
    rollNumberInput.addEventListener('keydown', function (event) {
@@ -38,7 +41,7 @@ function downloadSlips() {
    }
 
    const apiUrl = getApiUrl(slipType, rollNumber);
-   // resultMessage.innerHTML = 'Processing, Download will begin shortly...'; // Display processing message
+   resultMessage.innerHTML = 'Processing, Download will begin shortly...'; // Display processing message
 
    // Create a form and submit it
    const form = document.createElement('form');
@@ -57,10 +60,15 @@ function downloadSlips() {
 
    // Clean up
    document.body.removeChild(form);
-   // resultMessage.innerHTML = 'Download initiated!';
-   // clearForm();
-}
+   
+   // Update the message after form submission
+   //resultMessage.innerHTML = 'Download initiated!';
 
+   // Clear the message after 2 seconds
+   setTimeout(() => {
+      resultMessage.innerHTML = '';
+   }, 1000);
+}
 
 
 function getApiUrl(slipType, rollNumber) {
