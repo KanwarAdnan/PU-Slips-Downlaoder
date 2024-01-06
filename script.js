@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', function () {
    downloadButton.disabled = true; // Disable the button initially
    resultMessage.innerText = 'Please wait while we are establishing a connection...';
 
-   const baseUrl = 'https://api_last-1-j0851899.deta.app/';
-   //const baseUrl = 'https://kanwaradnanpusms-vvicnw7txq-uc.a.run.app/';
+   // const baseUrl = 'https://api_last-1-j0851899.deta.app/';
+   const baseUrl = 'https://kanwaradnanpusms-vvicnw7txq-uc.a.run.app/';
    
    // Wake up API
    fetch(baseUrl)
@@ -81,9 +81,9 @@ function downloadSlips() {
 
 function getApiUrl(slipType, rollNumber) {
    // Old API URL
-   const baseUrl = 'https://api_last-1-j0851899.deta.app/';
+   // const baseUrl = 'https://api_last-1-j0851899.deta.app/';
 
-   // const baseUrl = 'https://kanwaradnanpusms-vvicnw7txq-uc.a.run.app/';
+   const baseUrl = 'https://kanwaradnanpusms-vvicnw7txq-uc.a.run.app/';
 
    if (slipType === 'exam') {
       return `${baseUrl}download_slip`;
