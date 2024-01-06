@@ -75,7 +75,7 @@ function downloadSlips() {
    // Clear the message after 2 seconds
    setTimeout(() => {
       resultMessage.innerHTML = '';
-   }, 1000);
+   }, 500);
 }
 
 
