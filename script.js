@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
    rollNumberInput.addEventListener('keydown', function (event) {
       if (event.key === 'Enter' && !downloadButton.disabled) {
          event.preventDefault();
-         downloadSlips();
+         downloadFile();
       }
    });
 });
@@ -32,7 +32,7 @@ function validateRollNumber(rollNumber) {
    const rollNumberPattern = /^[0-9]{5,6}$/;
    return rollNumberPattern.test(rollNumber);
 }
-function downloadSlips() {
+function downloadFile() {
    const rollNumberInput = document.getElementById('rollNumber');
    const rollNumber = rollNumberInput.value;
    const slipType = document.getElementById('slipType').value; // Get the selected slip type
@@ -91,7 +91,10 @@ function getApiUrl(slipType, rollNumber) {
       return `${baseUrl}download_adp_slip`;
    } else if (slipType === 'prc') {
       return `${baseUrl}download_practical_slip`; // fixed
+   }  else if (slipType === 'rt') {
+      return `${baseUrl}download_result_transcript`; // fixed
    }
+
 }
 
 function clearForm() {

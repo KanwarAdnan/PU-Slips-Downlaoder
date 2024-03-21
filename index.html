@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Download your PU Slips easily and quickly.">
+    <meta name="description" content="Download your PU Slips and results easily and quickly.">
     <link rel="canonical" href="https://kanwaradnan.github.io/PU-Slips-Downlaoder/" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
-    <title>PU Exam Slip Download</title>
+    <title>PU Results and Slips</title>
 
     <script>
         function cacheResources() {
             const cacheName = 'kanwar_sd_cache';
-            const cacheVersion = 3;
+            const cacheVersion = 4;
     
             const resourcesToCache = [
                 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css',
@@ -91,21 +91,23 @@
         <div class="container">
             <div class="row">
 				<div class="col-md-6">
-					<h2 class="display-4">Download Your Slips</h2>
-					<p class="lead">Download your exam slips quickly and easily by entering your university roll number.</p>
+					<h2 class="display-4">Download Your Slips and Results</h2>
+					<p class="lead">Download your exam slips and results quickly and easily by entering your university roll number.</p>
 					<p>Explore additional resources and affiliations:</p>
 					<ul>
-						<li><a href="https://www.facebook.com/voiceofgcs" target="_blank">Islami Jamiat Talba, Government Graduate College of Science</a> - Stay connected with our organization for updates and announcements.</li>
-						<li><a href="http://pu.edu.pk/splash/allied" target="_blank">Official Link to Punjab University Slips</a> - Access your official exam slips directly from the Punjab University portal.</li>
+                        <li><a href="https://www.facebook.com/voiceofgcs" target="_blank">Islami Jamiat Talba, Government Graduate College of Science</a> - Stay connected with our organization for updates and announcements.</li>
+						<li><a href="https://www.facebook.com/gcswrlahore" target="_blank">Govt. Graduate College Of Science</a> - Get updates directly from our official page.</li>
+                        <li><a href="http://pu.edu.pk/splash/allied" target="_blank">Official Link to Punjab University Slips</a> - Access your official exam slips directly from the Punjab University portal.</li>
 					</ul>
 				</div>
                 <div class="col-md-6">
                     <!-- Slip Download Form -->
                     <form id="slipForm" class="form">
                         <div class="form-group">
-                            <label for="slipType">Select Slip Type:</label>
+                            <label for="slipType">Select File Type:</label>
                             <select id="slipType" name="slipType" class="form-control">
-                                <option value="prc" selected>Practical Slips</option>
+                                <option value="rt" selected>Results Transcripts</option>
+                                <option value="prc">Practical Slips</option>
                                 <option value="exam">BS Exam Slips</option>
                                 <option value="adp">ADP Exam Slips</option>
                             </select>
@@ -114,13 +116,14 @@
                             <label for="rollNumber">University Roll Number:</label>
                             <input type="text" id="rollNumber" name="rollNumber" class="form-control" required>
                         </div>
-						<button id="downloadButton" type="button" onclick="downloadSlips()" class="btn btn-primary btn-lg">Download</button>
+						<button id="downloadButton" type="button" onclick="downloadFile()" class="btn btn-primary btn-lg">Download</button>
                         <div id="resultMessage" class="result-message mt-3"></div>
                     </form>
                 </div>
 				<div class="col-md-6">
-					<p>Instructions for Slips Download:</p>
+					<p>Instructions for File Download:</p>
 					<ul>
+						<li>SELECT <i>Results Transcripts</i> for BS Results Transcripts.</li>
 						<li>SELECT <i>Practical Slips</i> for BS Practical Slips.</li>
 						<li>SELECT <i>ADP Exam Slips</i> for ADP (replacement of M.A./M.Sc./ M.Com./ M.B.A).</li>
 						<li>SELECT <i> Exam Slips</i> for ADP (replacement of M.A./M.Sc./ M.Com./ M.B.A).</li>
@@ -144,7 +147,7 @@
         <div class="row">
             <div class="col-md-12 text-center">
                 <h2 class="display-5">About the Developer</h2>
-                <p class="lead">Hi, I'm Kanwar Adnan, currently studying BSIT in 7th Semester at GGCS, the developer behind this exam slip download portal. If you have any questions, feedback, or technical inquiries, feel free to reach out.</p>
+                <p class="lead">Hi, I'm Kanwar Adnan, currently studying BSIT in 7th Semester at GGCS, the developer behind this exam slips and results download portal. If you have any questions, feedback, or technical inquiries, feel free to reach out.</p>
 				<ul class="list-unstyled social-icons">
 					<li><a href="https://www.facebook.com/kanwaradnanakhtar" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
 					<li><a href="https://github.com/kanwaradnan" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
