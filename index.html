@@ -113,8 +113,9 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="rollNumber">University Roll Number:</label>
-                            <input type="text" id="rollNumber" name="rollNumber" class="form-control" required>
+                            <label for="rollNumber">University Roll Number or CNIC (CNIC Only for 1st Semester):</label>
+                            <input type="text" id="rollNumber" name="rollNumber" placeholder="Uni Roll No or CNIC (XXXXX-XXXXXXX-X)" class="form-control" required>
+                            <!-- <input type="text" id="rollNumber" name="rollNumber" class="form-control" required> -->
                         </div>
 						<button id="downloadButton" type="button" onclick="downloadFile()" class="btn btn-primary btn-lg">Download</button>
                         <div id="resultMessage" class="result-message mt-3"></div>
@@ -123,10 +124,11 @@
 				<div class="col-md-6">
 					<p>Instructions for File Download:</p>
 					<ul>
+                        <li>Enter CNIC if you are first semester student to download your slip. Please follow the Instructions below.</li>
+						<li>SELECT <i> Exam Slips</i> for ADP (replacement of M.A./M.Sc./ M.Com./ M.B.A).</li>
 						<li>SELECT <i>Results Transcripts</i> for BS Results Transcripts.</li>
 						<li>SELECT <i>Practical Slips</i> for BS Practical Slips.</li>
 						<li>SELECT <i>ADP Exam Slips</i> for ADP (replacement of M.A./M.Sc./ M.Com./ M.B.A).</li>
-						<li>SELECT <i> Exam Slips</i> for ADP (replacement of M.A./M.Sc./ M.Com./ M.B.A).</li>
 					</ul>
                     <p><b>Note:</b> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All slips are combined in one PDF. If any semester's slip is not included, please contact your relevant college or visit Punjab University for the missing slip. Thank you.</p>
                 </div>
