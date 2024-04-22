@@ -105,6 +105,7 @@ function downloadFile() {
 function getApiUrl(slipType, identifier) {
    // Old API URL
    // const baseUrl = 'https://api_last-1-j0851899.deta.app/';
+   // download_adp_slip
    const baseUrl = 'https://kanwaradnanpusms-vvicnw7txq-uc.a.run.app/';
    const rollNumberRegex = /^\d+$/; // Regex to match digits only (for roll number)
    const cnicRegex = /^\d{5}-\d{7}-\d$/; // Regex to match CNIC format (XXXXX-XXXXXXX-X)
@@ -120,7 +121,7 @@ function getApiUrl(slipType, identifier) {
          return `${baseUrl}download_slip_using_cnic`;
       }
    } else if (slipType === 'adp') {
-      return `${baseUrl}download_adp_slip`;
+      return `${baseUrl}download_practical_slip`;
    } else if (slipType === 'prc') {
       return `${baseUrl}download_practical_slip`;
    } else if (slipType === 'rt') {
